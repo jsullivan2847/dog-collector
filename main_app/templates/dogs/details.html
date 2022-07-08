@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ dog.name }}</span>
+        <p>Breed: {{dog.breed}}</p>
+        <p>Description: {{dog.description}}</p>
+        {% if cat.age > 0 %}
+        <p>Age: {{ dog.age }}</p>
+        {% else %}
+        <p>Age: Puppy</p>
+        {% endif %}
+    </div>
+</div>
+<div class="card-action">
+    <a href="{% url 'delete_dog' dog.id %}">Delete</a>
+</div>
+
+{% endblock %}
