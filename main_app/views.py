@@ -3,14 +3,17 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from .models import Dog
+from .forms import FeedingForm
 
 def dogs(request):
     dogs = Dog.objects.all()
     return render(request, 'dogs/index.html', {'dogs': dogs})
 
 def dog_details(request, dog_id):
-    dog = Dog.objects.get(id=dog_id)
-    return render(request, 'dogs/details.html', {'dog':dog})
+    dog = Dog.objects.get(id = dog_id)
+    feeding_form = FeedingForm()
+    return render(request, 'dogs/details.html', {
+        'dog':dog, 'feeding_form': feeding_form })
 
 class DogCreate(CreateView):
     model = Dog
@@ -20,3 +23,7 @@ class DogCreate(CreateView):
 class DogDelete(DeleteView):
     model = Dog
     success_url = '/'
+
+class DogUpdate(UpdateView):
+    model = Dog
+    fields = '__all__'
