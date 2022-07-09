@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogs</title>
-</head>
-<body>
+{% extends 'base.html'%} {% block content %}
 
-    {% extends 'base.html'%} {% block content %}
     <h1>All Dogs</h1>
+
     {% for dog in dogs %}
     <div class="card">
-        <a href="{% url 'details' dog.id %}">please work</a>
+        <a href="{% url 'details' dog.id %}">
         <div class="card-content">
             <span class="card-title">{{dog.name}}</span>
             <p>Breed: {{dog.breed}}</p>
@@ -23,6 +15,7 @@
             <p>Age: Puppy</p>
             {% endif %}
         </div>
+       </a>
     </div>
     {% endfor %} {% endblock %}
 </body>
