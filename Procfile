@@ -1,1 +1,1 @@
-web: gunicorn dog-collector.wsgi
+web: gunicorn dogcollector.wsgi
