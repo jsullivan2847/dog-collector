@@ -79,7 +79,7 @@ def add_photo(request, dog_id):
 
 class DogCreate(LoginRequiredMixin, CreateView):
     model = Dog
-    fields = '__all__'
+    fields = ['name', 'breed', 'description', 'age']
     success_url = '/'
 
     def form_valid(self, form):
@@ -94,7 +94,7 @@ class DogDelete(LoginRequiredMixin, DeleteView):
 
 class DogUpdate(LoginRequiredMixin, UpdateView):
     model = Dog
-    fields = '__all__'
+    fields = ['name', 'breed', 'description', 'age']
 
 
 class ToyList(LoginRequiredMixin,ListView):
